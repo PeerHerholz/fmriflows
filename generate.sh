@@ -16,6 +16,7 @@ generate_docker() {
       --add-to-entrypoint 'export PATH=/usr/lib/afni/bin:$PATH' \
       --add-to-entrypoint 'export PATH=/usr/lib/ants:$PATH' \
       --user=neuro \
+      --workdir /home/neuro \
       --miniconda version="latest" \
         conda_install="python=3.7 h5py ipython joblib jupyter
                        jupyter_contrib_nbextensions jupyterlab matplotlib
@@ -27,7 +28,7 @@ generate_docker() {
                      nistats nitime pybids autopep8" \
         create_env="neuro" \
         activate=True \
-      --miniconda version="latest" \
+      --miniconda miniconda_version="4.6" \
         conda_install="python=2.7 h5py hdf5 imageio ipython joblib jupyter
                        jupyter_contrib_nbextensions jupyterlab matplotlib
                        nb_conda nbformat nipy numpy pandas pytest scikit-image
@@ -93,6 +94,7 @@ generate_singularity() {
       --add-to-entrypoint 'export PATH=/usr/lib/afni/bin:$PATH' \
       --add-to-entrypoint 'export PATH=/usr/lib/ants:$PATH' \
       --user=neuro \
+      --workdir /home/neuro \
       --miniconda version="latest" \
         conda_install="python=3.7 h5py ipython joblib jupyter
                        jupyter_contrib_nbextensions jupyterlab matplotlib
@@ -104,7 +106,7 @@ generate_singularity() {
                      nistats nitime pybids autopep8" \
         create_env="neuro" \
         activate=True \
-      --miniconda version="latest" \
+      --miniconda miniconda_version="4.6" \
         conda_install="python=2.7 h5py hdf5 imageio ipython joblib jupyter
                        jupyter_contrib_nbextensions jupyterlab matplotlib
                        nb_conda nbformat nipy numpy pandas pytest scikit-image
